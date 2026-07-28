@@ -11,6 +11,8 @@ Seja bem-vindo ao meu repositório de apresentação profissional. Este projeto 
 - **HTML5:** Estruturação semântica e acessível.
 - **CSS3:** Estilização moderna, variáveis e layout responsivo.
 - **GitHub Pages:** Hospedagem e deploy contínuo da aplicação.
+-  **JavaScript (ES6+):** Manipulação de DOM para alternância dinâmica de tema (Dark Mode).
+   
 
 ---
 
@@ -27,4 +29,10 @@ Este projeto consolida os conhecimentos fundamentais adquiridos em Desenvolvimen
 
 **José Idelfonso Xavier Firmino**
 - Foco: Análise e Desenvolvimento de Sistemas | Dev Web & Infraestrutura de Redes
-- 
+  
+---
+
+## 🚀 Funcionalidades
+
+- **Layout Responsivo:** Adaptado para dispositivos móveis e desktop.
+- **Modo Escuro (Dark Mode):** Alternância de tema em tempo real utilizando JavaScript.
