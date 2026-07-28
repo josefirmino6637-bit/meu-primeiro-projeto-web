@@ -82,12 +82,23 @@
     </footer>
     <script>
   const toggleBtn = document.getElementById('theme-toggle');
+
+  // 1. Aplica o tema salvo assim que carrega
+  if (localStorage.getItem('modoEscuro') === 'true') {
+    document.body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Tema';
+  }
+
+  // 2. Alterna e salva a escolha ao clicar
   toggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
+    
     toggleBtn.textContent = isDark ? '☀️ Tema' : '🌙 Tema';
+    localStorage.setItem('modoEscuro', isDark);
   });
 </script>
+
 <style>
   body.dark-mode {
     background-color: #121212 !important;
