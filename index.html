@@ -3,133 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Firmino | Desenvolvedor Web & Tecnologia</title>
+    <title>José Idelfonso | Desenvolvedor & Analista de TI</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #1a365d; color: #ffffff; text-align: center; padding: 40px 20px; border-radius: 0 0 8px 8px; }
-        .header h1 { font-size: 2rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.1rem; color: #cbd5e0; }
-        .card { background: #ffffff; padding: 25px; margin-top: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card h2 { color: #2b6cb0; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.3rem; }
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background-color: #ebf8ff; color: #2b6cb0; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        .project-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #edf2f7; }
-        .project-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .project-item h3 { color: #2d3748; margin-bottom: 5px; font-size: 1.1rem; }
-        a { color: #2b6cb0; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        footer { text-align: center; padding: 20px; color: #718096; font-size: 0.9rem; margin-top: 30px; }
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --border-color: #e2e8f0;
+            --tag-bg: #eff6ff;
+            --tag-text: #1e40af;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --primary-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --border-color: #334155;
+            --tag-bg: #0369a1;
+            --tag-text: #e0f2fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .theme-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-item, .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .project-item:last-child, .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+        }
+
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 30px;
+        }
     </style>
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <h1>José Idelfonso Xavier Firmino</h1>
-            <p class="subtitle">Análise e Desenvolvimento de Sistemas | Dev Web & Infraestrutura</p>
-            <button id="theme-toggle" style="position: absolute; top: 15px; right: 15px; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; background: #ffffff; color: #1a1a1a; font-weight: bold;">🌙 Tema</button>
-            
-        </div>
-    </header>
+<body data-theme="light">
 
-    <main class="container">
-        <section class="card">
+    <div class="container">
+        <header>
+            <div>
+                <h1>José Idelfonso Xavier Firmino</h1>
+                <div class="subtitle">Análise e Desenvolvimento de Sistemas | Dev Web & Infraestrutura</div>
+            </div>
+            <button class="theme-btn" onclick="toggleTheme()">🌓 Tema</button>
+        </header>
+
+        <section>
             <h2>Sobre Mim</h2>
-            <p>Profissional em transição de carreira para a área de Tecnologia da Informação, Profissional formado em Análise e Desenvolvimento de Sistemas.
-                Possuo sólida formação em Desenvolvimento Web (HTML5, CSS3, JavaScript, Banco de Dados) e Infraestrutura de Redes, combinando rigor operacional, disciplina e resolução de problemas.</p>
+            <p>Profissional formado em Análise e Desenvolvimento de Sistemas[span_3](start_span)[span_3](end_span), unindo sólida base técnica em desenvolvimento web e infraestrutura de redes[span_4](start_span)[span_4](end_span) ao rigor operacional e à tomada de decisão sob pressão adquiridos em ambientes corporativos complexos.</p>
+            <p>Foco em entregar código limpo, automação de processos e soluções robustas que conectam a necessidade do negócio à eficiência técnica.</p>
         </section>
 
-        <section class="card">
+        <section>
             <h2>Competências Técnicas</h2>
             <div class="skills-grid">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Lógica de Programação</span>
-                <span class="tag">SQL / Banco de Dados</span>
+                <span class="tag">HTML5 / CSS3</span>
+                <span class="tag">JavaScript (ES6+)</span>
+                <span class="tag">Banco de Dados / SQL</span>
                 <span class="tag">Redes & DHCP</span>
                 <span class="tag">Windows Server</span>
+                <span class="tag">Git & GitHub</span>
                 <span class="tag">Hardware & Suporte</span>
+                <span class="tag">Resolução de Problemas</span>
             </div>
         </section>
-            <section class="card">
-        <h2>Experiência Profissional</h2>
-        <div style="margin-bottom: 15px;">
-            <strong>Motorista</strong> &mdash; Empresa de Ônibus Vila Galvão (2009 &ndash; Atual)
-            <ul style="margin-top: 5px; padding-left: 20px; font-size: 0.95rem; color: #4a5568;">
-                <li>Atendimento ao público, cumprimento rigoroso de procedimentos, horários e normas do transporte urbano.</li>
-                <li>Tomada de decisão rápida, gestão de rotinas sob pressão e instrução de trânsito.</li>
-            </ul>
-        </div>
-        <div>
-            <strong>Auxiliar de Serviços Gerais</strong> &mdash; Condomínio Edifício Renoir Monet (2008 &ndash; 2009)
-            <ul style="margin-top: 5px; padding-left: 20px; font-size: 0.95rem; color: #4a5568;">
-                <li>Organização, suporte em demandas internas, manutenção e atendimento.</li>
-            </ul>
-        </div>
-            </section>
-        
 
-        <section class="card">
+        <section>
             <h2>Projetos em Destaque</h2>
+            
             <div class="project-item">
-                <h3>Portal de Apresentação & Portfólio</h3>
-                <p>Aplicação web responsiva desenvolvida para consolidação de conhecimentos em desenvolvimento front-end e publicação de repositórios no GitHub.</p>
-                <p><strong>Tecnologias:</strong> HTML5, CSS3, Git, GitHub</p>
+                <div class="project-title">Portal de Portfólio Profissional</div>
+                <p>Aplicação web responsiva desenvolvida com foco em performance, acessibilidade e experiência do usuário, contando com sistema nativo de Dark Mode persistente via <code>localStorage</code>.</p>
+                <a href="https://github.com/josefirmino6637-bit" class="project-link" target="_blank">Ver Repositório no GitHub &rarr;</a>
             </div>
-            <div class="project-item">
-                <h3>Sistema de Cadastro (Curso IFRS)</h3>
-                <p>Estruturação de formulários interativos com validação de dados e conceitos de orientação a objetos e bancos de dados relacionais.</p>
-                <p><strong>Tecnologias:</strong> HTML5, CSS3, JavaScript, SQL</p>
+
+            <div class="project-item" style="margin-top: 20px;">
+                <div class="project-title">Sistema de Gestão e Formulários Dinâmicos</div>
+                <p>Estruturação de lógica front-end com validação de dados em tempo real e integração com conceitos de manipulação de DOM e persistência local.</p>
+                <a href="https://github.com/josefirmino6637-bit" class="project-link" target="_blank">Explorar Projetos &rarr;</a>
             </div>
         </section>
 
-        <section class="card">
+        <section>
+            <h2>Experiência Profissional</h2>
+            
+            <div class="exp-item">
+                <div class="project-title">Empresa de Ônibus Vila Galvão — Motorista</div>
+                <div style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 5px;">2009 – Presente[span_5](start_span)[span_5](end_span)</div>
+                <ul>
+                    <li>Gestão de rotinas críticas sob alta pressão, garantindo cumprimento rigoroso de prazos, procedimentos de segurança e normas do transporte urbano[span_6](start_span)[span_6](end_span).</li>
+                    <li>Atendimento direto ao público[span_7](start_span)[span_7](end_span), exigindo comunicação clara, empatia e resolução imediata de imprevistos operacionais.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
             <h2>Contato</h2>
-            <p><strong>E-mail:</strong> josefirmino1989@outlook.com</p>
-            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/jose-firmino-157981337" target="_blank">linkedin.com/in/jose-firmino-157981337</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/josefirmino6637-bit" target="_blank">github.com/josefirmino6637-bit</a></p>
+            <p>📧 E-mail: <a href="mailto:josefirmino1989@outlook.com" style="color: var(--accent-color);">josefirmino1989@outlook.com</a>[span_8](start_span)[span_8](end_span)</p>
+            <p>💼 LinkedIn: <a href="https://linkedin.com/in/jose-firmino-157981337" target="_blank" style="color: var(--accent-color);">/in/jose-firmino-157981337</a>[span_9](start_span)[span_9](end_span)</p>
+            <p>🐙 GitHub: <a href="https://github.com/josefirmino6637-bit" target="_blank" style="color: var(--accent-color);">github.com/josefirmino6637-bit</a></p>
         </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 José Firmino - Desenvolvido para Portfólio no GitHub</p>
-        </div>
-    </footer>
+        <footer>
+            <p>&copy; 2026 José Idelfonso Xavier Firmino. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
     <script>
-  const toggleBtn = document.getElementById('theme-toggle');
-
-  // 1. Aplica o tema salvo assim que carrega
-  if (localStorage.getItem('modoEscuro') === 'true') {
-    document.body.classList.add('dark-mode');
-    toggleBtn.textContent = '☀️ Tema';
-  }
-
-  // 2. Alterna e salva a escolha ao clicar
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    
-    toggleBtn.textContent = isDark ? '☀️ Tema' : '🌙 Tema';
-    localStorage.setItem('modoEscuro', isDark);
-  });
-</script>
-
-<style>
-  body.dark-mode {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-  }
-  body.dark-mode .card {
-    background-color: #1e1e1e !important;
-    color: #ffffff !important;
-  }
-  body.dark-mode .header {
-    background-color: #0f2b48 !important;
-  }
-</style>
-    
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+        }
+    </script>
 </body>
 </html>
